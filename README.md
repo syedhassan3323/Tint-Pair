@@ -2,6 +2,8 @@
 
 **One hex color. Two polished themes. Copy the CSS.**
 
+**[Open the live demo →](https://syedhassan3323.github.io/Tint-Pair/)** — try TintPair in your browser.
+
 Turn a brand color into coordinated light and dark themes. See both on a small
 dashboard before copying the exact same tokens into your Tailwind v4 project.
 Optional secondary and accent colors, twelve palette presets, a component
