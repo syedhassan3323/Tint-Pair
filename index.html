@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="One hex color. Two polished themes. Preview light and dark themes and copy the Tailwind v4 CSS.">
+  <meta name="theme-color" content="#f8f9fc">
+  <title>TintPair — one color, two polished themes</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to theme builder</a>
+  <header class="site-header wrap">
+    <a class="brand" href="./" aria-label="TintPair home">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>TintPair<span class="version">v1.3</span>
+    </a>
+    <nav class="header-actions" aria-label="TintPair actions">
+      <a class="github-link icon-button" href="https://github.com/syedhassan3323" target="_blank" rel="noopener noreferrer" aria-label="Visit syedhassan3323 on GitHub (opens in a new tab)" title="GitHub · syedhassan3323">
+        <svg viewBox="0 0 16 16" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82A7.65 7.65 0 018 3.86c.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8Z"/></svg>
+      </a>
+      <button id="appearance" class="icon-button" type="button" aria-label="Dark mode" aria-pressed="false" title="Switch to dark mode">
+        <svg class="theme-icon-moon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 13a8.8 8.8 0 0 1-9.8-9.8A9 9 0 1 0 20.8 13Z"/></svg>
+        <svg class="theme-icon-sun" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button id="share" class="button secondary" type="button">Share theme <span aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+  <main class="wrap">
+    <h1 class="sr-only">TintPair theme builder</h1>
+    <div class="workspace" id="workspace">
+      <aside class="controls panel" aria-labelledby="controls-title">
+        <div class="section-label">THEME SETTINGS</div>
+        <h2 id="controls-title">Your palette.</h2>
+        <p class="help">Start with one color. Make it your own.</p>
+        <label for="hex">Primary color</label>
+        <div class="color-control">
+          <input id="picker" type="color" value="#7c3aed" aria-label="Choose brand color">
+          <input id="hex" value="#7c3aed" maxlength="16" spellcheck="false" autocomplete="off"
+            autocapitalize="off" aria-describedby="hex-hint color-error">
+        </div>
+        <p class="help small" id="hex-hint">Use #RGB or #RRGGBB. Kept exactly as chosen.</p>
+        <div id="extra-colors" class="extra-colors"></div>
+        <p class="error small" id="color-error" aria-live="polite"></p>
+        <fieldset><legend>Palette presets <span class="help small">12 starting points</span></legend><div id="presets" class="presets"></div></fieldset>
+        <div class="radius-heading"><label for="radius">Corner radius</label><output id="radius-value" for="radius">12px</output></div>
+        <input id="radius" type="range" min="0" max="24" step="1" value="12">
+        <div class="range-labels" aria-hidden="true"><span>Sharp</span><span>Rounded</span></div>
+        <button id="reset" class="button secondary wide" type="button">Reset theme <span aria-hidden="true">↺</span></button>
+      </aside>
+      <section class="preview-section" aria-labelledby="preview-title">
+        <div class="section-heading"><div><div class="section-label">LIVE PLAYGROUND</div><h2 id="preview-title">Two themes. Every detail.</h2></div><span class="live-badge"><span class="tiny-dot"></span> Tailwind v4</span></div>
+        <div class="view-toolbar" role="group" aria-label="Preview content">
+          <button class="view-button" data-view="dashboard" aria-pressed="true" type="button">Dashboard</button>
+          <button class="view-button" data-view="components" aria-pressed="false" type="button">Components</button>
+          <button class="view-button" data-view="forms" aria-pressed="false" type="button">Forms</button>
+          <button class="view-button" data-view="tables" aria-pressed="false" type="button">Tables</button>
+          <button class="view-button" data-view="tokens" aria-pressed="false" type="button">Color tokens</button>
+        </div>
+        <div class="preview-grid" id="previews"></div>
+        <p class="preview-note">Real components. The exact tokens you’ll export. <span>Try the buttons and inputs.</span></p>
+      </section>
+    </div>
+    <section class="export-section panel" aria-labelledby="export-title">
+      <div class="export-top"><div><div class="section-label">EXPORT</div><h2 id="export-title">Your theme, ready to ship.</h2><p class="help">Semantic tokens for Tailwind v4. One stylesheet, both modes.</p></div>
+        <div class="export-actions"><button id="download" class="button secondary" type="button">Download .css <span aria-hidden="true">↓</span></button><button id="copy" class="button" type="button">Copy Tailwind CSS <span aria-hidden="true">⧉</span></button></div>
+      </div>
+      <div class="code-title"><span><span class="file-icon" aria-hidden="true">{ }</span> theme.css</span><span>CSS · Tailwind v4</span></div>
+      <pre tabindex="0" aria-label="Generated Tailwind CSS"><code id="css-output"></code></pre>
+      <details id="integration"><summary>How do I use this in my project?</summary><div class="integration-body">
+        <p>Use the download as your Tailwind v4 entry stylesheet. In an existing entry, keep one <code>@import "tailwindcss";</code> at the top, then add the remaining generated blocks. Merge any existing dark-variant definition instead of duplicating it.</p>
+        <p>Try <code>bg-background text-foreground</code> on your page and <code>bg-primary text-primary-foreground rounded-card</code> on a button. Toggle the <code>dark</code> class on <code>&lt;html&gt;</code> to switch modes.</p>
+        <p>These are text-contrast checks, not a full accessibility certification. See the README for recipes and limitations.</p>
+      </div></details>
+    </section>
+    <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true"></p>
+  </main>
+  <footer class="wrap site-footer"><span><strong>TintPair</strong> · One hex color. Two polished themes. Copy the CSS.</span><a href="#integration">Tailwind v4 integration ↗</a></footer>
+  <dialog id="fallback" aria-labelledby="fallback-title" aria-describedby="fallback-description">
+    <div class="dialog-heading"><h2 id="fallback-title">Copy your CSS</h2><button id="close-fallback" class="button secondary" type="button">Close</button></div>
+    <p id="fallback-description">Clipboard access is unavailable. Select the text and use your device’s Copy command.</p>
+    <label for="fallback-text">Text to copy</label><textarea id="fallback-text" readonly rows="12" spellcheck="false"></textarea>
+  </dialog>
+  <dialog id="share-dialog" aria-labelledby="share-title">
+    <div class="dialog-heading"><h2 id="share-title">Share your theme</h2><button id="close-share" class="button secondary" type="button">Close</button></div>
+    <p>Send a working palette. This link includes your primary, secondary, accent, and corner radius.</p>
+    <label for="share-url">Theme link</label><input id="share-url" class="share-url" type="url" readonly>
+    <div class="share-actions"><button id="copy-link" class="button" type="button">Copy link <span aria-hidden="true">⧉</span></button><button id="native-share" class="button secondary" type="button" hidden>Share via your device ↗</button></div>
+    <p class="small help">Anyone with access to this hosted app can open the link. Sharing a theme does not change the app’s access settings.</p>
+  </dialog>
+  <noscript><p class="wrap error">TintPair needs JavaScript to generate and preview themes. Enable JavaScript and reload.</p></noscript>
+  <template id="preview-template">
+    <article class="preview-card">
+      <div class="mode-heading"><h3></h3><span class="mode-description"></span></div>
+      <div class="dashboard">
+        <nav class="dash-nav" aria-label="Dashboard preview"><span class="dash-brand"><span class="mini-mark" aria-hidden="true">▦</span> Acme</span><span class="dash-nav-label">Overview</span><span class="avatar" aria-hidden="true">JD</span></nav>
+        <div class="dash-content" data-content="dashboard">
+          <div class="dash-heading"><div><h4>Workspace overview</h4><p class="muted">A good week, in the making.</p></div><span class="period-label">Last 30 days</span></div>
+          <div class="dashboard-stats" aria-label="Workspace metrics">
+            <section class="stat-card stat-primary surface"><span class="muted">Revenue</span><strong>$24.7k</strong><span class="stat-trend">↗ 12.8%</span><small>Primary color</small></section>
+            <section class="stat-card stat-secondary surface"><span class="muted">Customers</span><strong>1,284</strong><span class="stat-trend">↗ 8.2%</span><small>Secondary color</small></section>
+            <section class="stat-card stat-accent surface"><span class="muted">Conversion</span><strong>4.86%</strong><span class="stat-trend">↗ 2.1%</span><small>Accent color</small></section>
+          </div>
+          <section class="surface dashboard-block" aria-label="Acquisition channels">
+            <div class="block-heading"><h4>Growth by channel</h4><span class="badge badge-primary">+18.6%</span></div>
+            <p class="muted">All three palette colors, working together.</p>
+            <div class="channel-chart" role="img" aria-label="Illustrative weekly acquisition: Search 54%, Referral 28%, Direct 18%.">
+              <div style="--bar-height:44%"><i></i><i></i><i></i></div><div style="--bar-height:58%"><i></i><i></i><i></i></div>
+              <div style="--bar-height:52%"><i></i><i></i><i></i></div><div style="--bar-height:70%"><i></i><i></i><i></i></div>
+              <div style="--bar-height:65%"><i></i><i></i><i></i></div><div style="--bar-height:82%"><i></i><i></i><i></i></div>
+              <div style="--bar-height:88%"><i></i><i></i><i></i></div><div style="--bar-height:100%"><i></i><i></i><i></i></div>
+            </div>
+            <div class="chart-axis" aria-hidden="true"><span>Week 1</span><span>Week 4</span><span>Week 8</span></div>
+            <ul class="channel-legend"><li><i class="tone-primary" aria-hidden="true"></i>Search <strong>54%</strong></li><li><i class="tone-secondary" aria-hidden="true"></i>Referral <strong>28%</strong></li><li><i class="tone-accent" aria-hidden="true"></i>Direct <strong>18%</strong></li></ul>
+          </section>
+          <section class="surface dashboard-block">
+            <div class="block-heading"><h4>Projects in motion</h4><span class="muted">3 active</span></div>
+            <ul class="project-progress-list">
+              <li><div><span>Website refresh</span><strong>72%</strong></div><progress class="progress-primary" value="72" max="100" aria-label="Website refresh progress">72%</progress></li>
+              <li><div><span>Design system</span><strong>46%</strong></div><progress class="progress-secondary" value="46" max="100" aria-label="Design system progress">46%</progress></li>
+              <li><div><span>Mobile experience</span><strong>88%</strong></div><progress class="progress-accent" value="88" max="100" aria-label="Mobile experience progress">88%</progress></li>
+            </ul>
+          </section>
+          <section class="surface dashboard-block"><div class="block-heading"><h4>Today’s checklist</h4><span class="badge badge-secondary">3 tasks</span></div><div class="task-list"><label><input type="checkbox" checked> Review the new color palette <span class="badge badge-primary">Design</span></label><label><input type="checkbox"> Share the launch plan <span class="badge badge-secondary">Team</span></label><label><input type="checkbox"> Publish the next release <span class="badge badge-accent">Launch</span></label></div></section>
+          <section class="activity surface dashboard-block"><div class="block-heading"><h4>Team activity</h4><div class="avatar-stack" role="img" aria-label="Alex, Sam and Jordan"><span class="team-avatar tone-primary">AL</span><span class="team-avatar tone-secondary">SM</span><span class="team-avatar tone-accent">JD</span></div></div><ul><li><span class="activity-dot" aria-hidden="true"></span><div>Alex shared a new concept<p class="muted">Website refresh · Design review</p></div><span class="muted">2m</span></li><li><span class="activity-dot dot-secondary" aria-hidden="true"></span><div>Sam updated the components<p class="muted">Design system · 12 components</p></div><span class="muted">1h</span></li><li><span class="activity-dot dot-accent" aria-hidden="true"></span><div>Jordan completed a milestone<p class="muted">Mobile experience · Ready for review</p></div><span class="muted">3h</span></li></ul></section>
+          <section class="project surface dashboard-block"><h4>Make room for your next idea.</h4><p class="muted">Start a project and bring your team along.</p><label class="project-label">Project name<input class="project-input" type="text" maxlength="60" placeholder="e.g. Website refresh"></label><div class="dash-actions"><button class="primary-button" type="button">Create project <span aria-hidden="true">+</span></button><button class="secondary-button" type="button">View all</button></div></section>
+        </div>
+        <div class="component-content dash-content" data-content="components" hidden>
+          <section class="surface component-section">
+            <h4>Buttons &amp; badges</h4><p class="muted">Three colors, one connected system.</p>
+            <div class="sample-buttons"><button class="sample-primary" type="button">Primary</button><button class="sample-secondary" type="button">Secondary</button><button class="sample-accent" type="button">Accent</button><button class="sample-outline" type="button">Outline</button><button class="sample-outline" disabled type="button">Disabled</button></div>
+            <div class="sample-badges"><span class="badge badge-primary">New release</span><span class="badge badge-secondary">Design</span><span class="badge badge-accent">Pro plan</span></div>
+          </section>
+          <section class="surface component-section">
+            <h4>Forms &amp; selections</h4>
+            <label class="project-label">Workspace type<select class="project-input"><option>Personal workspace</option><option>Team workspace</option><option>Client project</option></select></label>
+            <div class="selection-row"><label><input type="checkbox" checked> Email updates</label><label class="switch-label"><input class="switch" type="checkbox" role="switch" checked> Notifications</label></div>
+            <fieldset class="sample-radio"><legend>Billing cycle</legend><label><input type="radio" value="monthly" checked> Monthly</label><label><input type="radio" value="yearly"> Yearly</label></fieldset>
+          </section>
+          <section class="surface component-section">
+            <h4>Feedback &amp; progress</h4>
+            <div class="sample-alert"><span aria-hidden="true">✦</span><div><strong>You’re all set</strong><p>Your palette is ready to go.</p></div></div>
+            <label class="project-label">Project progress <progress max="100" value="68">68%</progress></label><p class="muted">68% complete · Looking good</p>
+          </section>
+          <section class="surface component-section"><h4>Project table</h4><table class="sample-table"><caption class="sr-only">Example projects and their status</caption><thead><tr><th scope="col">Project</th><th scope="col">Status</th></tr></thead><tbody><tr><td>Brand refresh</td><td><span class="badge badge-accent">In progress</span></td></tr><tr><td>Website launch</td><td><span class="badge badge-secondary">Planned</span></td></tr></tbody></table></section>
+        </div>
+        <div class="forms-content dash-content" data-content="forms" hidden>
+          <div class="dash-heading"><div><h4>Start something new.</h4><p class="muted">A complete form, dressed in your colors.</p></div></div>
+          <ol class="form-steps" aria-label="Example project steps"><li class="badge badge-primary">1 · Project</li><li class="badge badge-secondary">2 · Team</li><li class="badge badge-accent">3 · Launch</li></ol>
+          <form class="preview-form surface" novalidate>
+            <h4>Project details</h4><p class="muted">Demo form. Nothing is sent or saved.</p>
+            <label class="project-label">Project name <span class="muted">(required)</span><input class="project-input" name="name" data-field="name" required minlength="2" maxlength="60" placeholder="Website refresh"><span class="field-error" data-error="name" hidden></span></label>
+            <label class="project-label">Contact email <span class="muted">(required)</span><input class="project-input" name="email" data-field="email" type="email" required maxlength="120" placeholder="alex@example.com"><span class="field-error" data-error="email" hidden></span></label>
+            <div class="form-columns"><label class="project-label">Budget ($)<input class="project-input" name="budget" data-field="budget" type="number" min="100" max="100000" step="1" value="2500" required><span class="field-error" data-error="budget" hidden></span></label><label class="project-label">Project type<select class="project-input" name="type"><option>Website</option><option>Mobile app</option><option>Brand identity</option><option>Design system</option></select></label></div>
+            <label class="project-label">Brief <span class="muted">(optional)</span><textarea class="project-input form-notes" name="notes" data-field="notes" rows="3" maxlength="240" placeholder="What would you like to build?"></textarea><span class="notes-count muted">0 / 240 characters</span><span class="field-error" data-error="notes" hidden></span></label>
+            <fieldset class="sample-radio"><legend>Who can see this project?</legend><label><input type="radio" name="visibility" value="private" checked> Only me</label><label><input type="radio" name="visibility" value="team"> My team</label></fieldset>
+            <div class="selection-row"><label><input type="checkbox" name="updates" checked> Email project updates</label><label class="switch-label"><input class="switch" type="checkbox" name="reminders" role="switch" checked> Reminders</label></div>
+            <p class="form-feedback" role="status" aria-live="polite" hidden></p>
+            <div class="dash-actions"><button class="form-submit sample-primary" type="submit">Create project <span aria-hidden="true">↗</span></button><button class="sample-outline" type="reset">Reset</button></div>
+          </form>
+          <section class="surface dashboard-block"><div class="block-heading"><h4>Team workspace</h4><span class="badge badge-accent">Pro</span></div><p class="muted">32 of 50 seats used</p><progress class="progress-accent" value="32" max="50" aria-label="Team seats used">32 of 50 seats</progress><p class="muted">Invite your next collaborator when you’re ready.</p></section>
+        </div>
+        <div class="tables-content dash-content" data-content="tables" hidden>
+          <div class="dash-heading"><div><h4>A little more organized.</h4><p class="muted">Search, filter, and inspect your palette.</p></div></div>
+          <section class="surface">
+            <div class="block-heading"><h4>All projects</h4><span class="badge badge-primary">Workspace</span></div>
+            <div class="table-filters"><label class="project-label">Search projects<input class="project-input project-search" type="search" placeholder="Name or owner"></label><label class="project-label">Status<select class="project-input project-status"><option value="all">All statuses</option><option value="active">Active</option><option value="review">Review</option><option value="planned">Planned</option><option value="complete">Complete</option></select></label></div>
+            <div class="data-table-wrap" tabindex="0" role="region" aria-label="Project table, scroll horizontally on small screens"><table class="sample-table project-table"><caption class="sr-only">Example projects with owners, status and progress</caption><thead><tr><th scope="col">Project / owner</th><th scope="col">Status</th><th scope="col">Progress</th></tr></thead><tbody></tbody></table></div>
+            <div class="table-empty" hidden><span aria-hidden="true">⌕</span><h4>No matching projects</h4><p class="muted">Try a different name, owner, or status.</p></div>
+            <div class="table-footer"><p class="table-count muted" role="status" aria-live="polite"></p><button class="clear-filters" type="button">Clear filters</button></div>
+          </section>
+          <section class="surface dashboard-block"><h4>A palette with a purpose.</h4><ul class="table-key"><li><i class="tone-primary" aria-hidden="true"></i><div><strong>Primary</strong><p class="muted">Main actions and active projects</p></div></li><li><i class="tone-secondary" aria-hidden="true"></i><div><strong>Secondary</strong><p class="muted">Supporting content and planned work</p></div></li><li><i class="tone-accent" aria-hidden="true"></i><div><strong>Accent</strong><p class="muted">Milestones and items ready for review</p></div></li></ul></section>
+        </div>
+        <div class="token-content dash-content" data-content="tokens" hidden>
+          <div class="dash-heading"><div><h4>Your color tokens</h4><p class="muted">Click a value to copy its hex.</p></div></div>
+          <div class="token-inspector surface"></div>
+        </div>
+      </div>
+      <div class="token-swatches" aria-label="Generated color tokens"></div>
+      <details class="contrast-details"><summary>Text contrast <span class="contrast-min"></span></summary><dl class="contrast-pairs"></dl><p class="help small">Ordinary text target: 4.5:1. Not a full accessibility certification.</p></details>
+    </article>
+  </template>
+</body>
+</html>

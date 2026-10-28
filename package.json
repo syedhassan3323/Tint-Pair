@@ -1,0 +1,13 @@
+{
+  "name": "tintpair",
+  "version": "1.3.0",
+  "private": true,
+  "description": "One hex color. Two polished themes. Copy the CSS.",
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node serve.mjs",
+    "test": "node --test"
+  },
+  "license": "MIT"
+}
